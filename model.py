@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import pickle
 import pandas as pd
 import numpy as np
@@ -49,15 +49,6 @@ def predict():
     instance = preprocess(vehicle)
     pred = classifier.predict(instance)
     return render_template('result.html', data=pred)
-        
-#         prediction = "Positive - APS may be in bad condition, manual inspection is required" 
-#     else:
-#         prediction = "Negative - APS is in fine condition"
-
-#     return jsonify({'prediction': prediction})
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
